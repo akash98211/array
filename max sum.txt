@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+  using namespace std;
+
+int maxi(int arr[],int n,int k)
+{
+    int maximum=0,a;
+    int sum[n]={0};
+        for (int i = n-1; i>=0; i--)
+         {   
+             if(i+k<n)  
+               sum[i]=sum[i+k] + arr[i];
+                
+            
+             else       
+             sum[i]=arr[i];
+             
+              
+             a=max(arr[i],sum[i]);
+            maximum=max(a,maximum);
+         }
+    return maximum;
+}
+  int main()
+  {
+    int t;cin>>t;
+   while(t--)
+   {
+       int n,k;cin>>n>>k;
+       int arr[n];
+       for (int i = 0; i < n; i++)  cin>>arr[i];
+       cout<<maxi(arr,n,k)<<endl;
+   }
+    return 0;
+  }

@@ -1,0 +1,47 @@
+
+
+#include <bits/stdc++.h> 
+using namespace std; 
+
+
+bool summation(int A[], int n, int sum) 
+{ 
+	int l, r; 
+	sort(A, A + n); 
+
+	
+	l = 0; 
+	r = n-1; 
+	while (l < r)
+	{   int count=0;
+		if (A[l] + A[r] == sum) 
+		   {	cout<<l<<" "<<r<<endl;
+		   count++;
+			break;}
+		else if (A[l] + A[r] < sum) 
+			l++; 
+		else //  ( A[l] + A[r] > sum)
+			r--; 
+		
+	} 
+	return 0; 
+} 
+
+
+int main() 
+{    int t;cin>>t;
+    while(t--)
+    {
+         int n;cin>>n;
+         int A[n];
+         for (int i = 0; i < n; i++) {
+              cin>>A[i];
+         }
+         	int sum;cin>>sum;
+         if(summation(A, n, sum))
+         
+         else 
+          cout<<"no"<<endl;
+    }
+	return 0; 
+} 
